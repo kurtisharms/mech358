@@ -1,8 +1,9 @@
+%   problem1.m
 %   Author: Kurtis Harms
 %   Student #38764114
 %   MECH 358 Lab 0
 %   Purpose: Problem 1
-%   Required Files:
+%   Required Files: problem1odefunc.m
 clear all;
 % declare a global n to share between files
 global n;
@@ -45,8 +46,6 @@ xlabel('t [s]');
 ylabel('u(t)');
 legend('u(t) with n=1','u(t) with n=5','u(t) with n=9','u(t) with n=15');
 title('u(t) with n=1,5,9,15');
-
-
 
 
 % Part 3

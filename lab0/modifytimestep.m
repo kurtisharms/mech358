@@ -1,3 +1,4 @@
+%   modifytimestep.m
 %   Author: Kurtis Harms
 %   Student #38764114
 %   MECH 358 Lab 0
@@ -7,7 +8,7 @@
 
 h_values = [0.2,0.1,0.05,0.025,0.0125];
 
-colors = ['r','g','b','k','y'];
+colors = ['--r','g','b','--k','y'];
 
 t_interval = [0,1];
 y0 = 1;
