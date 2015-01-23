@@ -65,8 +65,8 @@ end
 
 xlabel('t [s]');
 ylabel('energy(t)');
-legend('energy with n=1','u(t) with n=5','u(t) with n=9','u(t) with n=15');
-title('Energy with n=1,5,9,15');
+legend('energy with n=1','energy with n=5','energy with n=9','energy with n=15');
+title('Energy vs. Time with n=1,5,9,15');
 
 
 
