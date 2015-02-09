@@ -8,10 +8,10 @@ clear;
 clc;
 
 Pe_values = 1;
-h_values = [1,0.1];
+h_values = [0.1,1];
 L_values = [10,50,100];
 
-colors = ['r','b','k','g'];
+colors = ['-r','b',':k','g'];
 
 T_bvs = [1 0];
 
@@ -21,18 +21,37 @@ Pe = 1;
 
 i = 1;
 for L = L_values
-    h = 0.1;
     
-    x = 0:0.01:L;
-    y = exp(-Pe.*x);
-    plot(x,y,colors(i));
+    
+    figure(i);
+    hold on;
+   
+    j = 1;
+    for h = h_values
+        
+        % Create and plot analytical solution
+        x = 0:0.01:L;
+        y = exp(-Pe.*x);
+        plot(x,y,colors(j));
+        
+        % Create and plot numerical solution
+        T = solve_bvp(L,h,Pe,T_bvs(1),T_bvs(2));
+        x = 0:h:L;
+        plot(x,T,colors(j+1));
+
+        j = j+2;
+    end
+    
+    legend('Analytical Solution with h=0.1', ...
+    'Numerical Solution with h=0.1', ...
+    'Analytical Solution with h=1', ...
+    'Numerical Solution with h=1');
+    title(strcat('T(x) vs. x Analytical Solution for L=',num2str(L)));
+    xlabel('x')
+    ylabel('T(x)');
+    
     i = i+1;
 end
-
-legend('L=10','L=50','L=100');
-title('T(x) vs. x Analytical Solution');
-xlabel('x')
-ylabel('(T(x)');
 
 
 
