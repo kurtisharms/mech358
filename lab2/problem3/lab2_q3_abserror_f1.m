@@ -21,8 +21,8 @@ for j = 1:length(N)
     partialsum=0;
     
     %Even function so no b_n terms
-    for n=1:N(j)
-        partialsum=partialsum+((4*(pi*n*sin(pi*n)+cos(pi*n)-1))/((pi*n).^2))*cos((n*pi*x)/2);
+    for n=1:2:N(j)
+        partialsum=partialsum+((-8/((pi*n).^2))*cos((n*pi*x)/2));
         
     end
     
