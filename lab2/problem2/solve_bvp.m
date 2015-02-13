@@ -1,6 +1,7 @@
 %   solve_bvp.m
-%   Author: Kurtis Harms
-%   Student #38764114
+%   Authors:    Kurtis Harms (38764114)
+%               Ecem Kahramam (47962113)
+%               Mike Wilk (21085121)
 %   MECH 358 Lab 2
 %   Purpose: Problem 2, a bvp solver function
 %   Required Files: none
