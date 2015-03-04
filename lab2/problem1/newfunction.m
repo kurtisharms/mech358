@@ -2,6 +2,6 @@
 
 
 function f = newfunction(x)
-       f = x^2 - x + 1;
+       f = x.^2 - x + 1;
 end
 

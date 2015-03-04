@@ -1,4 +1,6 @@
 %Ecem Kahraman, 47962113
+%Kurtis Harms, 38764114
+%Mike Wilk, 21085121
 %Purpose:  Computing the Fourier series for the first function f(x)=abs(x) 
 %for x=[-2,2] and plotting the partial sums 
 
@@ -21,9 +23,8 @@ for j = 1:length(N)
     partialsum=0;
     
     %Even function so no b_n terms
-    for n=1:N(j)
-        partialsum=partialsum+((4*(pi*n*sin(pi*n)+cos(pi*n)-1))/((pi*n).^2))*cos((n*pi*x)/2);
-        
+    for n=1:2:N(j)
+        partialsum=partialsum+((-8/((pi*n).^2)).*cos((n*pi*x)/2)); 
     end
     
     %Finding the total partial sum with a_0 value added

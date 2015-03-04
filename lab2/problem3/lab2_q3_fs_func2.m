@@ -1,4 +1,6 @@
 %Ecem Kahraman, 47962113
+%Kurtis Harms, 38764114
+%Mike Wilk, 21085121
 %Purpose:  Computing the Fourier series for the second function  
 %for x=[-2,2] and plotting the partial sums
 
