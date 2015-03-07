@@ -3,7 +3,7 @@
 %               Ecem Kahraman (47962113)
 %               Mike Wilk (21085121)
 %   MECH 358 Lab 3
-%   Purpose: Problem 3, a bvp solver function
+%   Purpose: Problem 3, a bvp solver function for part (a)
 %   Required Files: none
 function T = solve_bvp(L,h,T_0,T_L,ri)
     N = (L-0)/h+1;

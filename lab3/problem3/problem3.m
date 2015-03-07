@@ -4,7 +4,8 @@
 %               Mike Wilk (21085121)
 %   MECH 358 Lab 3
 %   Purpose: Problem 3, truncation error for different schemes
-%   Required Files: solve_bvp.m
+%   Required Files: solve_bvp.m, solve_4th_order_part_b_bvp.m
+%                   solve_4th_order_part_c_bvp.m
 clear;
 clc;
 format long;
@@ -77,15 +78,7 @@ title(strcat('T(x) vs. x Analytical & Numerical Solutions from 0 < x < L',num2st
 xlabel('x')
 ylabel('y(x)');
 
-% Now prepare loglog plot for the error
-figure(3);
-hold on;
-loglog(h_values,abs(error_values-exact_values)/abs(exact_values));
-legend('Central Difference Method', ...
-    '4th Order Difference Method');
-title('Relative Error for Central Difference and 4th Order Difference vs. Mesh Size - Problem 3A/3B');
-xlabel('h');
-ylabel('Relative Error');
+% Store the error values for part a
 error_values_a = error_values;
 
 
@@ -93,6 +86,8 @@ error_values_a = error_values;
 % Show error values for each value of h
 disp('Here are the error values using Central Differences:');
 disp(error_values);
+disp('Here is the relative error values using Central Differences:');
+disp(abs(error_values-exact_values)./abs(exact_values));
     
 %     ooooooooo.                          .        oooooooooo.  
 %     `888   `Y88.                      .o8        `888'   `Y8b 
@@ -116,7 +111,7 @@ i = 1;
 for h = h_values
 
     % Create and plot numerical solution
-    y = solve_4th_order_part_b_bvp(L,h,y_0,y_L);
+    y = solve_4th_order_part_b_bvp(L,h);
     x = 0:h:L;
     plot(x,y,colors(i),'linewidth',linewidth(i));
 
@@ -137,12 +132,21 @@ xlabel('x')
 ylabel('y(x)');
 
 % Add the loglog plot for the error of part (b)
-figure(6);
-loglog(h_values,abs(error_values-exact_values)/abs(exact_values),h_values,abs(error_values_a-exact_values)/abs(exact_values));
+figure(3);
+loglog(h_values,abs(error_values_a-exact_values)./abs(exact_values),h_values,abs(error_values-exact_values)./abs(exact_values));
+legend('Central Difference Method', ...
+    '4th Order Difference Method');
+title('Relative Error for Central Difference and 4th Order Difference vs. Mesh Size at y(0.5) - Problem 3A/3B');
+xlabel('h');
+ylabel('Relative Error');
+
 
 % Show error values for each value of h
-disp('Here are the smaller error values using 4th-order BVP:');
+disp('Here are the error values using 4th-order BVP:');
 disp(error_values);
+disp('Here are the relative error values using 4th-order BVP:');
+disp(abs(error_values-exact_values)./abs(exact_values));
+
 
 
 %     ooooooooo.                          .          .oooooo.   
@@ -166,7 +170,7 @@ hold on;
 i = 1;
 for h = h_values
     % Create and plot numerical solution
-    y = solve_4th_order_part_c_bvp(L,h,y_0,y_L);
+    y = solve_4th_order_part_c_bvp(L,h);
     x = 0:h:L;
     plot(x,y,colors(i),'linewidth',linewidth(i));
 
@@ -185,7 +189,7 @@ ylabel('y(x)');
 % Now prepare loglog plot for Part C
 figure(5);
 hold on;
-loglog(h_values,abs(error_values-exact_values)/abs(exact_values));
+loglog(h_values,abs(error_values-exact_values)./abs(exact_values));
 legend('4th-order Difference Method');
 title('Relative Error for 4th Order Difference for Problem 3C');
 xlabel('h');
@@ -195,6 +199,8 @@ ylabel('Relative Error');
 % Show error values for each value of h
 disp('Here are the error values using 4th-order BVP on -y"=sqrt(x)*sin(10x):');
 disp(error_values);
+disp('Here are the relative error values using 4th-order BVP on -y"=sqrt(x)*sin(10x):');
+disp(abs(error_values-exact_values)./abs(exact_values));
 
 
 
